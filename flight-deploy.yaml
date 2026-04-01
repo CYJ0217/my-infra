@@ -3,7 +3,7 @@ kind: Deployment        # 어떤 종류의 리소스인지
 metadata:
   name: flight-deploy   # 이 관리팀의 이름
 spec:
-  replicas: 3           # [실무 포인트] 서버 상자를 항상 3개 유지해라! (하나 죽어도 무적)
+  replicas: 5       # [실무 포인트] 서버 상자를 항상 3개 유지해라! (하나 죽어도 무적)
   selector:
     matchLabels:
       app: flight-app   # 이 라벨이 붙은 상자들을 관리해라
