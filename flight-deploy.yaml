@@ -1,0 +1,19 @@
+apiVersion: apps/v1 #오브젝트를 생성하기 위해 사용하고 있는 쿠버네티스 api 버전
+kind: Deployment        # 어떤 종류의 리소스인지
+metadata:
+  name: flight-deploy   # 이 관리팀의 이름
+spec:
+  replicas: 3           # [실무 포인트] 서버 상자를 항상 3개 유지해라! (하나 죽어도 무적)
+  selector:
+    matchLabels:
+      app: flight-app   # 이 라벨이 붙은 상자들을 관리해라
+  template:
+    metadata:
+      labels:
+        app: flight-app # 상자에 붙일 이름표
+    spec:
+      containers:
+      - name: flight-container
+        image: nginx    # 일단 연습용으로 가벼운 nginx 상자를 쓸게요 (나중에 우리 거로 교체!)
+        ports:
+        - containerPort: 80
